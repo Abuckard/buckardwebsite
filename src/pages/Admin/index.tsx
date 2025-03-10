@@ -1,16 +1,16 @@
 import React from "react";
 import Header from "../../components/header";
-import AdminLogin from "../../components/AdminLogin";
+import Orders from "../../components/Orders";
 
-const Login = () => {
+const Admin = () => {
     return (
         <>
             <Header />
             <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
-                <AdminLogin />
+                <Orders />
             </div>
         </>
     );
 };
 
-export default Login;
+export default Admin;
