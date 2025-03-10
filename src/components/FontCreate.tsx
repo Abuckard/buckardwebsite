@@ -8,7 +8,7 @@ const fonts = [
 ];
 
 const colors = [
-    "black", "red", "blue", "green", "chrome", "stainless"
+    "black", "red", "blue", "green", "chrome", "stainless",
 ];
 
 const glowEffects = [
