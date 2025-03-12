@@ -20,6 +20,7 @@ const Header = () => {
                     <Link to="/contact" className="block py-2 md:inline-block">Kontakt</Link>
                     <Link to="/login" className="block py-2 md:inline-block">Logga in</Link>
                     <Link to="/signs" className="block py-2 md:inline-block">Skyltar</Link>
+                    <Link to="/inplastning" className="block py-2 md:inline-block">Inplastning</Link>
                 </nav>
             </div>
         </header>

@@ -6,7 +6,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
-
+import Inplastning from "./pages/Inplastning"
 const App = () => {
   return (
     <Router>
@@ -17,6 +17,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/inplastning" element={<Inplastning />} />
       </Routes>
     </Router>
   );
