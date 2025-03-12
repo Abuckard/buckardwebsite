@@ -166,14 +166,14 @@ const FontCreate = () => {
     }, [selectedFont, selectedColor, selectedGlow, text, fontSize, bgScale, textPosition]);
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen p-6 bg-gray-100 relative">
-            <h1 className="text-2xl font-bold mb-4">Testa Typsnitt</h1>
+        <div className="flex flex-col items-center justify-center min-h-screen p-6 bg-primary relative">
+            <h1 className="text-2xl font-bold mb-4 mt-10">Testa Typsnitt</h1>
 
-            <label className="mb-2">Skriv din text:</label>
+            <label className="mb-1 bg-darkPurple">Skriv din text:</label>
             <input
                 type="text"
                 placeholder="Skriv något..."
-                className="p-2 border rounded mb-4 w-64 text-center"
+                className="p-2 border rounded mb-2 w-64 text-center"
                 value={text}
                 onChange={(e) => setText(e.target.value)}
             />
@@ -191,6 +191,8 @@ const FontCreate = () => {
                 ))}
             </select>
 
+                <div className="flex">
+                <div className="flex flex-col">
             <label className="mb-2">Välj textfärg:</label>
             <select
                 className="p-2 border rounded mb-4"
@@ -203,7 +205,8 @@ const FontCreate = () => {
                     </option>
                 ))}
             </select>
-
+            </div>
+            <div className="flex flex-col ml-4">
             <label className="mb-2">Välj ljuseffekt:</label>
             <select
                 className="p-2 border rounded mb-4"
@@ -214,7 +217,8 @@ const FontCreate = () => {
                     <option key={glow} value={glow}>{glow.replace("-glow", " Glow")}</option>
                 ))}
             </select>
-
+            </div>
+            </div>
             <label className="mb-2">Välj textstorlek:</label>
             <input
                 type="range"
@@ -222,6 +226,23 @@ const FontCreate = () => {
                 max="50"
                 value={fontSize}
                 onChange={(e) => setFontSize(Number(e.target.value))}
+                className="w-64 mb-4"
+            />
+                         <label className="mb-2">Justera textposition:</label>
+            <input
+                type="range"
+                min="0"
+                max="100"
+                value={textPosition.top}
+                onChange={(e) => setTextPosition({ ...textPosition, top: Number(e.target.value) })}
+                className="w-64 mb-2"
+            />
+            <input
+                type="range"
+                min="0"
+                max="100"
+                value={textPosition.left}
+                onChange={(e) => setTextPosition({ ...textPosition, left: Number(e.target.value) })}
                 className="w-64 mb-4"
             />
             <label className="mb-2 mt-4">Zooma bakgrund:</label>
