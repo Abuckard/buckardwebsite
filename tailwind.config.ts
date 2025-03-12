@@ -1,24 +1,15 @@
-import colors from "./colorTest.tsx"
-
 export default {
-  content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}", // Kontrollera att denna rad finns!
+  ],
   theme: {
     extend: {
       colors: {
-        primary: colors.primary,
-        secondary: colors.secondary,
-        tertiary: colors.tertiary,
-        container: colors.container,
-        darkPurple: colors.darkPurple,
-        lightPurple: colors.lightPurple,
-        fifaText: colors.fifaText,
-        black: colors.black,
-        white: colors.white,
-        medium: colors.medium,
-        light: colors.light,
-        dark: colors.dark,
-        danger: colors.danger,
-        darkLight: colors.darkLight,
+        darkbg: "#121212", // Din anpassade färg
+        primary: "#141313",
+        secondary: "#C4E132",
+        tertiary: "#3226B6",
       },
     },
   },

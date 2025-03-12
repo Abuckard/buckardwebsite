@@ -6,7 +6,7 @@ const About = () => {
     return (
         <>
             <Header />
-            <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
+            <div className="flex flex-col items-center justify-center min-h-screen bg-gray-800 p-6">
                 <MaterialTest />
             </div>
         </>

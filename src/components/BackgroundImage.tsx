@@ -90,17 +90,7 @@ const BackgroundImage = ({ bgScale, text, textStyle }) => {
 
     return (
         <div className="flex flex-col items-center">
-            <select
-                className="mb-4 p-2 border rounded"
-                value={selectedImage}
-                onChange={(e) => setSelectedImage(e.target.value)}
-            >
-                <option value="PrincessTest">PrincessTest</option>
-                <option value="Akterspegel">Akterspegel</option>
-                <option value="uploaded">Uppladdad bild</option>
-            </select>
 
-            <input type="file" accept="image/*" onChange={handleImageUpload} className="mb-4 p-2 border rounded" />
 
             <div
                 className="relative w-[600px] h-[400px] overflow-hidden border border-gray-300 rounded-lg"
@@ -122,7 +112,19 @@ const BackgroundImage = ({ bgScale, text, textStyle }) => {
                     style={{ transform: `scale(${bgScale}) translate(${bgPosition.x}px, ${bgPosition.y}px)`, transformOrigin: "center" }}
                 />
                 <div style={textStyle}>{text || "Din text kommer att visas här..."}</div>
+
             </div>
+            <select
+                className="mb-4 p-2 border rounded mt-5"
+                value={selectedImage}
+                onChange={(e) => setSelectedImage(e.target.value)}
+            >
+                <option value="PrincessTest">PrincessTest</option>
+                <option value="Akterspegel">Akterspegel</option>
+                <option value="uploaded">Uppladdad bild</option>
+            </select>
+
+            <input type="file" accept="image/*" onChange={handleImageUpload} className="mb-4 p-2 border rounded" />
         </div>
     );
 };

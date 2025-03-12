@@ -55,11 +55,13 @@ const getTextStyle = (selectedFont, fontSize, textPosition, selectedColor, selec
     }
 
     if (selectedGlow !== "none") {
+        
         const glowMap = {
-            "red-glow": "0 0 15px red",
-            "blue-glow": "0 0 15px blue",
-            "green-glow": "0 0 15px green",
-            "purple-glow": "0 0 15px purple",
+            "Röd": "0 0 10px red, 0 0 30px, 0 0 50px",
+            "Blå": "0 0 15px blue",
+            "Grön": "0 0 15px green",
+            "Lila": "0 0 15px purple",
+            "Vit": "0 0 15px white",
         };
         style.textShadow = `${glowMap[selectedGlow]}, 0 0 30px rgba(255, 255, 255, 0.2)`;
     }

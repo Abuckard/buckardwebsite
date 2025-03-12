@@ -5,15 +5,15 @@ const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <header className="bg-blue-600 text-white p-4 shadow-md fixed w-full top-0 z-50">
-            <div className="container mx-auto flex justify-between items-center">
-                <h1 className="text-xl font-bold">Buckard Båtar</h1>
+        <header className="bg-gray-900 text-white p-4 shadow-md fixed w-full top-0 z-50">
+            <div className="container mx-auto flex justify-between items-center ">
+                <h1 className="text-xl font-bold">Buckards Båtar</h1>
                 <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
                     ☰
                 </button>
                 <nav
                     className={`${isOpen ? "block" : "hidden"
-                        } md:flex space-x-4 absolute md:static bg-blue-600 w-full md:w-auto top-full left-0 p-4 md:p-0`}
+                        } md:flex space-x-4 absolute md:static bg-gray-900 w-full md:w-auto top-full left-0 p-4 md:p-0`}
                 >
                     <Link to="/" className="block py-2 md:inline-block">Hem</Link>
                     <Link to="/about" className="block py-2 md:inline-block">Om oss</Link>

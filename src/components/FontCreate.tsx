@@ -131,7 +131,7 @@ import getTextStyle from "./TextStyle";
 
 const fonts = [
     "Arial", "Courier New", "Georgia", "Times New Roman", "Verdana", "Comic Sans MS",
-    "sui-generis, sans-serif", "ethnocentric, sans-serif", "rooney-sans, sans-serif", "tachyon, sans-serif", "griffon, sans-serif", "aviano-serif, serif",
+    "Sui-generis", "Ethnocentric", "Rooney", "Tachyon", "Griffon", "Aviano-serif",
 ];
 
 const colors = [
@@ -139,7 +139,7 @@ const colors = [
 ];
 
 const glowEffects = [
-    "none", "red-glow", "blue-glow", "green-glow", "purple-glow"
+    "none", "Röd", "Blå", "Grön", "Lila", "Vit"
 ];
 
 const FontCreate = () => {
@@ -166,7 +166,7 @@ const FontCreate = () => {
     }, [selectedFont, selectedColor, selectedGlow, text, fontSize, bgScale, textPosition]);
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen p-6 bg-primary relative">
+        <div className="flex flex-col items-center justify-center min-h-screen p-6 bg- relative">
             <h1 className="text-2xl font-bold mb-4 mt-10">Testa Typsnitt</h1>
 
             <label className="mb-1 bg-darkPurple">Skriv din text:</label>
@@ -180,7 +180,7 @@ const FontCreate = () => {
 
             <label className="mb-2">Välj ett typsnitt:</label>
             <select
-                className="p-2 border rounded mb-4"
+                className="p-2 border border-green-400 rounded mb-4 "
                 value={selectedFont}
                 onChange={(e) => setSelectedFont(e.target.value)}
             >
@@ -214,9 +214,10 @@ const FontCreate = () => {
                 onChange={(e) => setSelectedGlow(e.target.value)}
             >
                 {glowEffects.map((glow) => (
-                    <option key={glow} value={glow}>{glow.replace("-glow", " Glow")}</option>
+                    <option key={glow} value={glow}>{glow.replace("-glow", "")}</option>
                 ))}
             </select>
+            
             </div>
             </div>
             <label className="mb-2">Välj textstorlek:</label>
@@ -245,6 +246,9 @@ const FontCreate = () => {
                 onChange={(e) => setTextPosition({ ...textPosition, left: Number(e.target.value) })}
                 className="w-64 mb-4"
             />
+
+
+            <BackgroundImage bgScale={bgScale} text={text} textStyle={getTextStyle(selectedFont, fontSize, textPosition, selectedColor, selectedGlow)} />
             <label className="mb-2 mt-4">Zooma bakgrund:</label>
             <input
                 type="range"
@@ -253,10 +257,8 @@ const FontCreate = () => {
                 step="0.1"
                 value={bgScale}
                 onChange={(e) => setBgScale(Number(e.target.value))}
-                className="w-64 mb-4"
+                className="w-64 mb-4 "
             />
-
-            <BackgroundImage bgScale={bgScale} text={text} textStyle={getTextStyle(selectedFont, fontSize, textPosition, selectedColor, selectedGlow)} />
             <PriceExample />
         </div>
     );
