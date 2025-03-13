@@ -7,6 +7,8 @@ import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import Inplastning from "./pages/Inplastning"
+import Polering from "./pages/Polering"
+
 const App = () => {
   return (
     <Router>
@@ -18,6 +20,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/inplastning" element={<Inplastning />} />
+        <Route path="/polering" element={<Polering />} />
       </Routes>
     </Router>
   );
