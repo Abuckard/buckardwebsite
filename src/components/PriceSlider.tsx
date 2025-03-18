@@ -138,6 +138,9 @@ const PriceCalculator = () => {
 
     let totalPrice = basePrice * value;
 
+        // Konvertera fot till meter
+        const meters = (value * 0.3048).toFixed(2); // Två decimaler
+
     // Lägg till procentuell ökning från checkboxar
     const percentageOptions = Object.entries(selectedOptions).reduce((acc, [key, isChecked]) => {
         if (isChecked) {
@@ -173,6 +176,7 @@ const PriceCalculator = () => {
                     setValue(newValue);
                 }}
             />
+            <p className="mb-4 text-gray-600">≈ {meters} meter</p>
 
             {/* 📌 Slider som styr antalet enheter */}
             <input
