@@ -1,5 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const cors = require("cors");
 const connectDB = require("./config/db"); // ✅ Kopplar upp till MongoDB
 const Item = require("./models/Item"); // ✅ Importera modellen
 
@@ -8,6 +9,8 @@ connectDB(); // 🔹 Anslut till MongoDB
 
 const app = express();
 app.use(express.json()); // 🔹 Middleware för att tolka JSON
+
+app.use(cors());
 
 // Testroute
 app.get("/api/items", async (req, res) => {
@@ -34,20 +37,21 @@ app.get("/api/items/:id", async (req, res) => {
 // 🔹 NY POST-route för att spara data i MongoDB
 app.post("/api/items", async (req, res) => {
     try {
-        const { name, price } = req.body;
+        const { text, font, color, glow, email, size, price, dimensions } = req.body;
 
-        if (!name || !price) {
-            return res.status(400).json({ message: "Vänligen ange namn och pris" });
+        if (!text || !font || !color || !glow || !email || !size || !price || !dimensions) {
+            return res.status(400).json({ message: "Alla fält måste fyllas i" });
         }
 
-        const newItem = new Item({ name, price }); // 📌 Skapar en ny instans av modellen
-        await newItem.save(); // 📌 Sparar i databasen
+        const newItem = new Item({ text, font, color, glow, email, size, price, dimensions }); // 📌 Sparar hela objektet
+        await newItem.save();
 
         res.status(201).json({ message: "Objekt tillagt!", item: newItem });
     } catch (error) {
         res.status(500).json({ message: "Något gick fel", error: error.message });
     }
 });
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
