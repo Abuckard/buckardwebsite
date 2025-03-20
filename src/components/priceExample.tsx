@@ -17,7 +17,7 @@ const PriceExample = () => {
     }, [selectedSize]);
 
     return (
-        <div className="flex flex-col items-center p-6 bg-gray-100 border rounded-lg w-80">
+        <div className="flex flex-col items-center p-6 bg-gray-900 border rounded-lg w-80">
             <h2 className="text-xl font-bold mb-4">Prisförslag</h2>
 
             <label className="mb-2">Välj storlek:</label>
@@ -33,7 +33,7 @@ const PriceExample = () => {
                 ))}
             </select>
 
-            <div className="text-center p-4 border rounded bg-white shadow-md">
+            <div className="text-center p-4 bg-gray-900 shadow-md">
                 <p className="text-lg font-semibold">Mått: {priceOptions[selectedSize].dimensions}</p>
                 <p className="text-lg font-semibold text-green-600">Pris: {priceOptions[selectedSize].price} SEK</p>
             </div>

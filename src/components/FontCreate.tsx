@@ -1,138 +1,5 @@
-// import React, { useState } from "react";
-// import PrincessTest from "../Images/PrincessTest.png";
-// import BackgroundImage from "./BackgroundImage";
-// import PriceExample from "./priceExample";
-// import getTextStyle from "./TextStyle";
-
-// const fonts = [
-//     "Arial", "Courier New", "Georgia", "Times New Roman", "Verdana", "Comic Sans MS",
-//     "sui-generis, sans-serif", "ethnocentric, sans-serif", "rooney-sans, sans-serif", "tachyon, sans-serif", "griffon, sans-serif", "aviano-serif, serif",
-// ];
-
-// const colors = [
-//     "black", "red", "blue", "green", "chrome", "stainless",
-// ];
-
-// const glowEffects = [
-//     "none", "red-glow", "blue-glow", "green-glow", "purple-glow"
-// ];
-
-// const FontCreate = () => {
-//     const [selectedFont, setSelectedFont] = useState(fonts[0]);
-//     const [selectedColor, setSelectedColor] = useState("black");
-//     const [selectedGlow, setSelectedGlow] = useState("none");
-//     const [text, setText] = useState("");
-//     const [fontSize, setFontSize] = useState(16);
-//     const [bgScale, setBgScale] = useState(1);
-//     const [textPosition, setTextPosition] = useState({ top: 50, left: 50 });
-
-//     return (
-//         <div className="flex flex-col items-center justify-center min-h-screen p-6 bg-gray-100 relative">
-//             <h1 className="text-2xl font-bold mb-4">Testa Typsnitt</h1>
-
-//             <label className="mb-2">Skriv din text:</label>
-//             <input
-//                 type="text"
-//                 placeholder="Skriv något..."
-//                 className="p-2 border rounded mb-4 w-64 text-center"
-//                 value={text}
-//                 onChange={(e) => setText(e.target.value)}
-//             />
-
-//             <label className="mb-2">Välj ett typsnitt:</label>
-//             <select
-//                 className="p-2 border rounded mb-4"
-//                 value={selectedFont}
-//                 onChange={(e) => setSelectedFont(e.target.value)}
-//             >
-//                 {fonts.map((font) => (
-//                     <option key={font} value={font} style={{ fontFamily: font }}>
-//                         {font}
-//                     </option>
-//                 ))}
-//             </select>
-
-//             <label className="mb-2">Välj textfärg:</label>
-//             <select
-//                 className="p-2 border rounded mb-4"
-//                 value={selectedColor}
-//                 onChange={(e) => setSelectedColor(e.target.value)}
-//             >
-//                 {colors.map((color) => (
-//                     <option key={color} value={color} style={{ color: color }}>
-//                         {color}
-//                     </option>
-//                 ))}
-//             </select>
-
-//             <label className="mb-2">Välj ljuseffekt:</label>
-//             <select
-//                 className="p-2 border rounded mb-4"
-//                 value={selectedGlow}
-//                 onChange={(e) => setSelectedGlow(e.target.value)}
-//             >
-//                 {glowEffects.map((glow) => (
-//                     <option key={glow} value={glow}>{glow.replace("-glow", " Glow")}</option>
-//                 ))}
-//             </select>
-
-//             <label className="mb-2">Välj textstorlek:</label>
-//             <input
-//                 type="range"
-//                 min="10"
-//                 max="50"
-//                 value={fontSize}
-//                 onChange={(e) => setFontSize(Number(e.target.value))}
-//                 className="w-64 mb-4"
-//             />
-//             <label className="mb-2 mt-4">Zooma bakgrund:</label>
-//             <input
-//                 type="range"
-//                 min="1"
-//                 max="3"
-//                 step="0.1"
-//                 value={bgScale}
-//                 onChange={(e) => setBgScale(Number(e.target.value))}
-//                 className="w-64 mb-4"
-//             />
-
-//             <label className="mb-2">Justera textposition:</label>
-//             <input
-//                 type="range"
-//                 min="0"
-//                 max="100"
-//                 value={textPosition.top}
-//                 onChange={(e) => setTextPosition({ ...textPosition, top: Number(e.target.value) })}
-//                 className="w-64 mb-2"
-//             />
-//             <input
-//                 type="range"
-//                 min="0"
-//                 max="100"
-//                 value={textPosition.left}
-//                 onChange={(e) => setTextPosition({ ...textPosition, left: Number(e.target.value) })}
-//                 className="w-64 mb-4"
-//             />
-
-//             <BackgroundImage bgScale={bgScale} text={text} textStyle={getTextStyle(selectedFont, fontSize, textPosition, selectedColor, selectedGlow)} />
-//             <PriceExample />
-//         </div>
-//     );
-// };
-
-// export default FontCreate;
-
-
-
-
-
-
-
-
-
 
 // import React, { useState, useEffect } from "react";
-// import PrincessTest from "../Images/PrincessTest.png";
 // import BackgroundImage from "./BackgroundImage";
 // import PriceExample from "./priceExample";
 // import getTextStyle from "./TextStyle";
@@ -144,13 +11,16 @@
 //     "Sui-generis", "Ethnocentric", "Rooney", "Tachyon", "Griffon", "Aviano-serif",
 // ];
 
-// const colors = [
-//     "black", "red", "blue", "green", "chrome", "stainless",
-// ];
+// const colors = ["black", "red", "blue", "green", "chrome", "stainless"];
 
-// const glowEffects = [
-//     "none", "Röd", "Blå", "Grön", "Lila", "Vit"
-// ];
+// const glowEffects = ["none", "Röd", "Blå", "Grön", "Lila", "Vit"];
+
+// const priceOptions = {
+//     small: { dimensions: "30x20 cm", price: 100 },
+//     medium: { dimensions: "50x30 cm", price: 200 },
+//     large: { dimensions: "70x50 cm", price: 350 },
+//     xl: { dimensions: "100x70 cm", price: 500 }
+// };
 
 // const FontCreate = () => {
 //     const [selectedFont, setSelectedFont] = useState(() => localStorage.getItem("selectedFont") || fonts[0]);
@@ -165,6 +35,9 @@
 //             : { top: 50, left: 50 };
 //     });
 
+//     const [email, setEmail] = useState("");
+//     const [selectedSize, setSelectedSize] = useState("small");
+
 //     useEffect(() => {
 //         localStorage.setItem("selectedFont", selectedFont);
 //         localStorage.setItem("selectedColor", selectedColor);
@@ -174,6 +47,8 @@
 //         localStorage.setItem("bgScale", bgScale.toString());
 //         localStorage.setItem("textPosition", JSON.stringify(textPosition));
 //     }, [selectedFont, selectedColor, selectedGlow, text, fontSize, bgScale, textPosition]);
+
+//     const totalPrice = priceOptions[selectedSize].price;
 
 //     return (
 //         <div className="flex flex-col items-center justify-center min-h-screen p-6 bg- relative">
@@ -227,9 +102,9 @@
 //                             <option key={glow} value={glow}>{glow.replace("-glow", "")}</option>
 //                         ))}
 //                     </select>
-
 //                 </div>
 //             </div>
+
 //             <label className="mb-2">Välj textstorlek:</label>
 //             <input
 //                 type="range"
@@ -239,6 +114,7 @@
 //                 onChange={(e) => setFontSize(Number(e.target.value))}
 //                 className="w-64 mb-4"
 //             />
+
 //             <label className="mb-2">Justera textposition:</label>
 //             <input
 //                 type="range"
@@ -257,7 +133,6 @@
 //                 className="w-64 mb-4"
 //             />
 
-
 //             <BackgroundImage bgScale={bgScale} text={text} textStyle={getTextStyle(selectedFont, fontSize, textPosition, selectedColor, selectedGlow)} />
 //             <label className="mb-2 mt-4">Zooma bakgrund:</label>
 //             <input
@@ -269,8 +144,11 @@
 //                 onChange={(e) => setBgScale(Number(e.target.value))}
 //                 className="w-64 mb-4 "
 //             />
+
 //             <PriceExample />
-//             <EmailInput />
+//             <EmailInput email={email} setEmail={setEmail} />
+
+//             {/* 🟢 Fixade OrderButton med rätt props */}
 //             <OrderButton
 //                 text={text}
 //                 font={selectedFont}
@@ -281,14 +159,11 @@
 //                 price={totalPrice}
 //                 dimensions={priceOptions[selectedSize].dimensions}
 //             />
-
 //         </div>
 //     );
 // };
 
 // export default FontCreate;
-
-
 
 
 
@@ -344,26 +219,26 @@ const FontCreate = () => {
     const totalPrice = priceOptions[selectedSize].price;
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen p-6 bg- relative">
+        <div className="flex flex-col items-center justify-center min-h-screen p-6 text-white relative w-full">
             <h1 className="text-2xl font-bold mb-4 mt-10">Testa Typsnitt</h1>
 
-            <label className="mb-1 bg-darkPurple">Skriv din text:</label>
+            <label className="mb-1">Skriv din text:</label>
             <input
                 type="text"
                 placeholder="Skriv något..."
-                className="p-2 border rounded mb-2 w-64 text-center"
+                className="p-2 border border-white rounded bg-transparent text-white mb-2 w-64 text-center placeholder-gray-300"
                 value={text}
                 onChange={(e) => setText(e.target.value)}
             />
 
             <label className="mb-2">Välj ett typsnitt:</label>
             <select
-                className="p-2 border border-green-400 rounded mb-4 "
+                className="p-2 border border-white rounded bg-transparent text-white mb-4"
                 value={selectedFont}
                 onChange={(e) => setSelectedFont(e.target.value)}
             >
                 {fonts.map((font) => (
-                    <option key={font} value={font} style={{ fontFamily: font }}>
+                    <option key={font} value={font} style={{ fontFamily: font }} className="text-black">
                         {font}
                     </option>
                 ))}
@@ -373,12 +248,12 @@ const FontCreate = () => {
                 <div className="flex flex-col">
                     <label className="mb-2">Välj textfärg:</label>
                     <select
-                        className="p-2 border rounded mb-4"
+                        className="p-2 border border-white rounded bg-transparent text-white mb-4"
                         value={selectedColor}
                         onChange={(e) => setSelectedColor(e.target.value)}
                     >
                         {colors.map((color) => (
-                            <option key={color} value={color} style={{ color: color }}>
+                            <option key={color} value={color} className="text-black">
                                 {color}
                             </option>
                         ))}
@@ -387,12 +262,14 @@ const FontCreate = () => {
                 <div className="flex flex-col ml-4">
                     <label className="mb-2">Välj ljuseffekt:</label>
                     <select
-                        className="p-2 border rounded mb-4"
+                        className="p-2 border border-white rounded bg-transparent text-white mb-4"
                         value={selectedGlow}
                         onChange={(e) => setSelectedGlow(e.target.value)}
                     >
                         {glowEffects.map((glow) => (
-                            <option key={glow} value={glow}>{glow.replace("-glow", "")}</option>
+                            <option key={glow} value={glow} className="text-black">
+                                {glow.replace("-glow", "")}
+                            </option>
                         ))}
                     </select>
                 </div>
@@ -405,7 +282,7 @@ const FontCreate = () => {
                 max="50"
                 value={fontSize}
                 onChange={(e) => setFontSize(Number(e.target.value))}
-                className="w-64 mb-4"
+                className="w-64 mb-4 accent-white"
             />
 
             <label className="mb-2">Justera textposition:</label>
@@ -415,7 +292,7 @@ const FontCreate = () => {
                 max="100"
                 value={textPosition.top}
                 onChange={(e) => setTextPosition({ ...textPosition, top: Number(e.target.value) })}
-                className="w-64 mb-2"
+                className="w-64 mb-2 accent-white"
             />
             <input
                 type="range"
@@ -423,10 +300,11 @@ const FontCreate = () => {
                 max="100"
                 value={textPosition.left}
                 onChange={(e) => setTextPosition({ ...textPosition, left: Number(e.target.value) })}
-                className="w-64 mb-4"
+                className="w-64 mb-4 accent-white"
             />
-
-            <BackgroundImage bgScale={bgScale} text={text} textStyle={getTextStyle(selectedFont, fontSize, textPosition, selectedColor, selectedGlow)} />
+            <div className="w-full max-w-[900px] mx-auto">
+                <BackgroundImage bgScale={bgScale} text={text} textStyle={getTextStyle(selectedFont, fontSize, textPosition, selectedColor, selectedGlow)} />
+            </div>
             <label className="mb-2 mt-4">Zooma bakgrund:</label>
             <input
                 type="range"
@@ -435,13 +313,12 @@ const FontCreate = () => {
                 step="0.1"
                 value={bgScale}
                 onChange={(e) => setBgScale(Number(e.target.value))}
-                className="w-64 mb-4 "
+                className="w-64 mb-4 accent-white"
             />
 
             <PriceExample />
             <EmailInput email={email} setEmail={setEmail} />
 
-            {/* 🟢 Fixade OrderButton med rätt props */}
             <OrderButton
                 text={text}
                 font={selectedFont}

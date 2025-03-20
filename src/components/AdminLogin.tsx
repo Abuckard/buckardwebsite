@@ -94,12 +94,12 @@ const AdminLogin = () => {
 
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-            <div className="bg-white p-6 rounded-lg shadow-md w-80">
+        <div className="flex flex-col items-center justify-center min-h-screen ">
+            <div className="bg-gray-900 text-white p-6 rounded-lg shadow-md w-80  ">
                 <h2 className="text-xl font-bold mb-4">Admin Login</h2>
                 {error && <p className="text-red-500 mb-4">{error}</p>}
                 <form onSubmit={handleLogin} className="flex flex-col">
-                    <label className="mb-2">Användarnamn:</label>
+                    <label className="mb-2">Email:</label>
                     <input
                         type="text"
                         value={username}

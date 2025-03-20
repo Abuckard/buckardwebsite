@@ -147,7 +147,7 @@ const PolishCalculator = () => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center p-6 bg-gray-100 border rounded-lg w-80">
+        <div className="flex flex-col items-center justify-center p-6 bg-gray-900 text-white border rounded-lg w-80">
             <h2 className="text-xl font-bold mb-4">Prisräknare</h2>
 
             {/* 📌 Inputfält som visar aktuellt värde */}
@@ -163,7 +163,7 @@ const PolishCalculator = () => {
                     setValue(newValue);
                 }}
             />
-            <p className="mb-4 text-gray-600">≈ {meters} meter</p>
+            <p className="mb-4 text-gray-400">≈ {meters} meter</p>
 
             {/* 📌 Slider som styr antalet enheter */}
             <input

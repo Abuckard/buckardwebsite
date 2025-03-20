@@ -1,9 +1,9 @@
 import React from "react";
 import Header from "../../components/header";
 import backgroundCity from "../../Images/background/backgroundCity.jpg";
-import Gallery from "../../components/Gallery"
+import Gallery from "../../components/Gallery";
 
-const Home = () => {
+const Galleri = () => {
     return (
         <>
             <Header />
@@ -15,11 +15,11 @@ const Home = () => {
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat"
                 }}
-
             >
+                <Gallery />
             </div>
         </>
     );
 };
 
-export default Home;
+export default Galleri;

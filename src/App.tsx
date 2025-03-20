@@ -8,6 +8,9 @@ import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import Inplastning from "./pages/Inplastning"
 import Polering from "./pages/Polering"
+import Gallery from "./pages/Gallery";
+import Montering from "./pages/Assembly";
+import Faq from "./pages/FAQ";
 
 const App = () => {
   return (
@@ -21,6 +24,11 @@ const App = () => {
         <Route path="/admin" element={<Admin />} />
         <Route path="/inplastning" element={<Inplastning />} />
         <Route path="/polering" element={<Polering />} />
+        <Route path="/galleri" element={<Gallery />} />
+        <Route path="/montering" element={<Montering />} />
+        <Route path="/faq" element={<Faq />} />
+
+
       </Routes>
     </Router>
   );
