@@ -12,7 +12,7 @@ const PriceCalculator = () => {
     const pricePerUnit = 170;
 
     // Baspris
-    let basePrice = pricePerUnit * 1.05; // Startvärde med 10% påslag
+    let basePrice = pricePerUnit * 1.05;
 
     // Öka priset med 1% för varje extra fot
     for (let i = 16; i <= value; i++) {

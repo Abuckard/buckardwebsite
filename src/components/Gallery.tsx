@@ -30,7 +30,7 @@ const Gallery: React.FC = () => {
         }
     };
 
-    // 🔹 Stäng modal
+    //  Stäng modal
     const closeModal = () => {
         setSelectedImageIndex(null);
     };
@@ -50,13 +50,13 @@ const Gallery: React.FC = () => {
 
         window.addEventListener("keydown", handleKeyDown);
         return () => window.removeEventListener("keydown", handleKeyDown);
-    }, [selectedImageIndex]); // 🔹 Lyssnar bara när modal är öppen
+    }, [selectedImageIndex]); //  Lyssnar bara när modal är öppen
 
     return (
         <div className="container mx-auto p-4">
             <h2 className="text-3xl font-bold text-center text-white mb-6">Bildgalleri</h2>
 
-            {/* 📌 Grid-layout för bilder */}
+
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                 {images.map((image, index) => (
                     <img
@@ -69,7 +69,7 @@ const Gallery: React.FC = () => {
                 ))}
             </div>
 
-            {/* 📌 Modal med bläddringsfunktion */}
+
             {selectedImageIndex !== null && (
                 <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50 p-4">
                     <div className="relative max-w-full max-h-full">
