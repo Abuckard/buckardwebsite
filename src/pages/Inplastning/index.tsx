@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../../components/header";
 import PriceSlider from "../../components/PriceSlider";
 import backgroundCity from "../../Images/background/backgroundCity.jpg"; // 🟢 Importera bilden
+import ContactInfo from "../../components/ContactInfo";
 
 const Inplastning = () => {
     return (
@@ -17,7 +18,9 @@ const Inplastning = () => {
                 }}
             >
                 <PriceSlider />
+                <ContactInfo />
             </div>
+
         </>
     );
 };

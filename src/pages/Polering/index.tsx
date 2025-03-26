@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../../components/header";
 import PolishSlider from "../../components/PolishPrice";
 import backgroundCity from "../../Images/background/backgroundCity.jpg";
-
+import ContactInfo from "../../components/ContactInfo";
 const Polering = () => {
     return (
         <>
@@ -17,6 +17,7 @@ const Polering = () => {
                 }}
             >
                 <PolishSlider />
+                <ContactInfo />
             </div>
 
 

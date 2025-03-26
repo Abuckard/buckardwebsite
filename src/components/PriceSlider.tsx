@@ -43,7 +43,7 @@ const PriceCalculator = () => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center p-6 bg-gray-900 text-white border rounded-lg w-80">
+        <div className="flex flex-col items-center justify-center p-6 bg-gray-900 text-white border rounded-lg w-80 mt-20">
             <h2 className="text-xl font-bold mb-4">Prisräknare!</h2>
 
             {/* 📌 Inputfält som visar aktuellt värde */}
