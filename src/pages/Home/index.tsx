@@ -1,14 +1,14 @@
 import React from "react";
 import Header from "../../components/header";
 import backgroundCity from "../../Images/background/backgroundCity.jpg";
-import Gallery from "../../components/Gallery"
-
+import StartDesign from "../../components/StartDesign"
+import WelcomeText from "../../components/Welcome";
 const Home = () => {
     return (
         <>
             <Header />
             <div
-                className="flex flex-col items-center justify-center min-h-screen p-6"
+                className="flex flex-col items-center  min-h-screen p-6"
                 style={{
                     backgroundImage: `url(${backgroundCity})`,
                     backgroundSize: "cover",
@@ -17,6 +17,8 @@ const Home = () => {
                 }}
 
             >
+                <WelcomeText />
+                <StartDesign />
             </div>
         </>
     );

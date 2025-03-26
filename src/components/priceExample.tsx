@@ -17,7 +17,7 @@ const PriceExample = () => {
     }, [selectedSize]);
 
     return (
-        <div className="flex flex-col items-center p-6 bg-gray-900 border rounded-lg w-80">
+        <div className="flex flex-col items-center p-6 bg-gray-900 border rounded-lg w-70">
             <h2 className="text-xl font-bold mb-4">Prisförslag</h2>
 
             <label className="mb-2">Välj storlek:</label>
