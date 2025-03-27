@@ -39,18 +39,18 @@ const Gallery: React.FC = () => {
         const handleKeyDown = (event: KeyboardEvent) => {
             if (selectedImageIndex !== null) {
                 if (event.key === "ArrowRight") {
-                    handleNextImage(); // Högerpil ➡️
+                    handleNextImage();
                 } else if (event.key === "ArrowLeft") {
-                    handlePrevImage(); // Vänsterpil ⬅️
+                    handlePrevImage();
                 } else if (event.key === "Escape") {
-                    closeModal(); // ESC för att stänga
+                    closeModal();
                 }
             }
         };
 
         window.addEventListener("keydown", handleKeyDown);
         return () => window.removeEventListener("keydown", handleKeyDown);
-    }, [selectedImageIndex]); //  Lyssnar bara när modal är öppen
+    }, [selectedImageIndex]);
 
     return (
         <div className="container mx-auto p-4">
@@ -73,7 +73,7 @@ const Gallery: React.FC = () => {
             {selectedImageIndex !== null && (
                 <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50 p-4">
                     <div className="relative max-w-full max-h-full">
-                        {/* 🔹 Stängningsknapp */}
+                        {/*  Stängningsknapp */}
                         <button
                             className="absolute top-2 right-2 bg-gray-800 text-white w-10 h-10 flex items-center justify-center rounded-full text-lg hover:bg-gray-600"
                             onClick={closeModal}
@@ -81,7 +81,7 @@ const Gallery: React.FC = () => {
                             ✕
                         </button>
 
-                        {/* 🔹 Föregående bild */}
+                        {/*  Föregående bild */}
                         <button
                             className="absolute left-5 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white w-10 h-10 flex items-center justify-center rounded-full text-lg hover:bg-gray-600"
                             onClick={handlePrevImage}
@@ -89,10 +89,10 @@ const Gallery: React.FC = () => {
                             ‹
                         </button>
 
-                        {/* 🔹 Visad bild */}
+                        {/*  Visad bild */}
                         <img src={images[selectedImageIndex]} alt="Förstorad bild" className="max-w-full max-h-screen rounded-lg" />
 
-                        {/* 🔹 Nästa bild */}
+                        {/*  Nästa bild */}
                         <button
                             className="absolute right-5 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white w-10 h-10 flex items-center justify-center rounded-full text-lg hover:bg-gray-600"
                             onClick={handleNextImage}

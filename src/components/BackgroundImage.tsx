@@ -69,7 +69,7 @@ const BackgroundImage = ({ bgScale, text, textStyle }) => {
                 </div>
             </div>
 
-            {/* 📌 Dropdown för att byta bild */}
+            {/*  Dropdown för att byta bild */}
             <select
                 className="mb-4 p-2 border border-white rounded bg-transparent text-white w-full max-w-xs mt-5"
                 value={selectedImage}
@@ -80,7 +80,7 @@ const BackgroundImage = ({ bgScale, text, textStyle }) => {
                 <option value="uploaded" className="text-black">Uppladdad bild</option>
             </select>
 
-            {/* 📌 Knapp för att ladda upp bild */}
+            {/*  Knapp för att ladda upp bild */}
             <input
                 type="file"
                 accept="image/*"

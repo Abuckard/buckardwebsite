@@ -16,7 +16,7 @@ const PolishCalculator = () => {
 
     // Öka priset med 1% för varje extra fot
     for (let i = 16; i <= value; i++) {
-        basePrice *= 1.01; // Ökar med 1% per fot
+        basePrice *= 1.01;
     }
 
     let totalPrice = basePrice * value;

@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "../../components/header";
-import MaterialTest from "../../components/MaterialTest";
 import backgroundCity from "../../Images/background/backgroundCity.jpg";
 
 const About = () => {

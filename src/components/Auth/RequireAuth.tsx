@@ -1,4 +1,3 @@
-// components/RequireAuth.tsx
 import { Navigate } from "react-router-dom";
 
 const RequireAuth = ({ children }: { children: JSX.Element }) => {

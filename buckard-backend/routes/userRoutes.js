@@ -3,7 +3,7 @@ const User = require("../models/User");
 
 const router = express.Router();
 
-// 🟢 Registrera användare
+//  Registrera användare
 router.post("/register", async (req, res) => {
     try {
         const { email, password } = req.body;

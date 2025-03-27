@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [servicesOpen, setServicesOpen] = useState(false); // 👈 För dropdown
+    const [servicesOpen, setServicesOpen] = useState(false);
     const [signsOpen, setSignsOpen] = useState(false)
 
     return (

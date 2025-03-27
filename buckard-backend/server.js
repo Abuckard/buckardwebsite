@@ -91,7 +91,7 @@ app.post("/api/users/register", async (req, res) => {
             return res.status(400).json({ message: "E-postadressen används redan" });
         }
 
-        // ❌ Ta bort manuell hashning (User.js sköter det automatiskt)
+
         const user = await User.create({ email, password });
 
         res.status(201).json({ message: "Användare skapad!", userId: user._id });
@@ -114,7 +114,7 @@ app.post("/api/users/login", async (req, res) => {
             return res.status(401).json({ message: "Fel e-post eller lösenord" });
         }
 
-        console.log("✅ Hittad användare:", user); // DEBUG
+        console.log(" Hittad användare:", user); // DEBUG
 
         //  Använd matchPassword från userSchema istället för bcrypt.compare()
         const isMatch = await user.matchPassword(password);
@@ -163,10 +163,10 @@ app.get("/api/admin", async (req, res) => {
     }
 });
 
-// 📌 Hämta alla användare (endast e-post visas)
+//  Hämta alla användare (endast e-post visas)
 app.get("/api/users", async (req, res) => {
     try {
-        const users = await User.find({}, "email"); // Hämta alla användare
+        const users = await User.find({}, "email");
         res.status(200).json(users);
     } catch (error) {
         res.status(500).json({ message: "Serverfel", error: error.message });

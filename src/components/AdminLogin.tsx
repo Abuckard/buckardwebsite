@@ -25,7 +25,7 @@ const AdminLogin = () => {
                 throw new Error(data.message || "Något gick fel");
             }
 
-            // 🔹 Spara JWT-token i localStorage
+            //  Spara JWT-token i localStorage
             localStorage.setItem("token", data.token);
             alert("Inloggning lyckades!");
             navigate("/admin");

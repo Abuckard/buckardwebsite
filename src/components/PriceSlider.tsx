@@ -46,7 +46,7 @@ const PriceCalculator = () => {
         <div className="flex flex-col items-center justify-center p-6 bg-gray-900 text-white border rounded-lg w-80 mt-20">
             <h2 className="text-xl font-bold mb-4">Prisräknare!</h2>
 
-            {/* 📌 Inputfält som visar aktuellt värde */}
+            {/*  Inputfält som visar aktuellt värde */}
             <label className="mb-2 text-lg">Hur många fot:</label>
             <input
                 type="number"
@@ -61,7 +61,7 @@ const PriceCalculator = () => {
             />
             <p className="mb-4 text-gray-400">≈ {meters} meter</p>
 
-            {/* 📌 Slider som styr antalet enheter */}
+            {/*  Slider som styr antalet enheter */}
             <input
                 type="range"
                 min="15"
@@ -72,7 +72,7 @@ const PriceCalculator = () => {
                 className="w-64 mb-4 accent-blue-500"
             />
 
-            {/* 📌 Alternativa tillval */}
+            {/*  Alternativa tillval */}
             <div className="flex flex-col items-start w-full mb-4">
                 <label className="flex items-center mb-2">
                     <input
@@ -112,7 +112,7 @@ const PriceCalculator = () => {
                 </label>
             </div>
 
-            {/* 📌 Renderar ut aktuellt pris */}
+            {/*  Renderar ut aktuellt pris */}
             <p className="text-lg font-semibold">
                 Pris: <span className="font-bold">{totalPrice.toFixed(2)} SEK</span>
             </p>

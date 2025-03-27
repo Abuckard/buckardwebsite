@@ -50,7 +50,7 @@ import Polering from "./pages/Polering";
 import Gallery from "./pages/Gallery";
 import Montering from "./pages/Assembly";
 import Faq from "./pages/FAQ";
-import RequireAuth from "./components/Auth/RequireAuth";// ✅ Importen
+import RequireAuth from "./components/Auth/RequireAuth";
 
 const App = () => {
   return (
@@ -62,7 +62,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
 
-        {/* 🔐 Skyddad route för admin */}
+        {/*  Skyddad route för admin */}
         <Route
           path="/admin"
           element={

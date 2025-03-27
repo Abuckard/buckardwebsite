@@ -50,7 +50,7 @@ const AssemblyGuide: React.FC = () => {
 
         window.addEventListener("keydown", handleKeyDown);
         return () => window.removeEventListener("keydown", handleKeyDown);
-    }, [selectedImageIndex]); //  Lyssnar bara när modal är öppen
+    }, [selectedImageIndex]);
 
     return (
         <div className="container mx-auto p-4 ">
