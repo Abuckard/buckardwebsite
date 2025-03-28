@@ -22,8 +22,9 @@ const PriceExample = () => {
 
             <label className="mb-2">Välj storlek:</label>
             <select
-                className="p-2 border rounded mb-4"
+                className="p-2 border rounded mb-4 text-white-500 bg-gray-800"
                 value={selectedSize}
+
                 onChange={(e) => setSelectedSize(e.target.value)}
             >
                 {Object.keys(priceOptions).map((size) => (
