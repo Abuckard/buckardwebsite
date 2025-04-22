@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../../components/header";
+import Header from "../../components/Header";
 import PolishSlider from "../../components/PolishPrice";
 import backgroundCity from "../../Images/background/backgroundCity.jpg";
 import ContactInfo from "../../components/ContactInfo";

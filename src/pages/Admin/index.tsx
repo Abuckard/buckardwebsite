@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "../../components/header";
+import Header from "../../components/Header";
 import Orders from "../../components/Orders";
 import OrderList from "../../components/OrderList";
 import backgroundCity from "../../Images/background/backgroundCity.jpg";

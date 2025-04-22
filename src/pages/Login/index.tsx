@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../../components/header";
+import Header from "../../components/Header";
 import AdminLogin from "../../components/AdminLogin";
 import backgroundCity from "../../Images/background/backgroundCity.jpg";
 
