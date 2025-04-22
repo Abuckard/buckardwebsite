@@ -11,6 +11,9 @@
     "build:css": "node node_modules/tailwindcss/lib/cli.js -i ./src/index.css -o ./dist/output.css --watch",
     "preview": "vite preview"
   },
+  "engines": {
+    "node": "20"
+  },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
