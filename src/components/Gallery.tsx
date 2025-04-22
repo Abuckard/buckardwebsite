@@ -6,11 +6,12 @@ import Goodtimes from "../Images/båtnamn/Goodtimes.jpg";
 import GreatEscape from "../Images/båtnamn/GreatEscape.jpg";
 import JOY from "../Images/båtnamn/JOY.jpg";
 import MYReward from "../Images/båtnamn/MY-reward-liten.jpg";
-import SilferPearl from "../Images/båtnamn/SilferPearl.jpg";
+import SilfverPearl from "../Images/båtnamn/SilfverPearl.jpg";
 import Vendela from "../Images/båtnamn/Vendela-liten.jpg";
 
+
 const images = [
-    AmazingDays, Goodtimes, GreatEscape, MYReward, SilferPearl, Vendela, Elvira, Flinga, JOY
+    AmazingDays, Goodtimes, GreatEscape, MYReward, SilfverPearl, Vendela, Elvira, Flinga, JOY
 ];
 
 const Gallery: React.FC = () => {
