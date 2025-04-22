@@ -13,6 +13,7 @@ import Gallery from "./pages/Gallery";
 import Montering from "./pages/Assembly";
 import Faq from "./pages/FAQ";
 import RequireAuth from "./components/Auth/RequireAuth";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
         <Route path="/galleri" element={<Gallery />} />
         <Route path="/montering" element={<Montering />} />
         <Route path="/faq" element={<Faq />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );
