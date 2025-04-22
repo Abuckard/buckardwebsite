@@ -6,9 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "start": "node buckard-backend/server.js",
     "lint": "eslint .",
     "build:css": "node node_modules/tailwindcss/lib/cli.js -i ./src/index.css -o ./dist/output.css --watch",
     "preview": "vite preview"
+  },
+  "engines": {
+    "node": "20"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -18,6 +22,10 @@
     "bcrypt": "^5.1.1",
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.13.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.2.0"
