@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "start": "node buckard-backend/server.js",
     "lint": "eslint .",
     "build:css": "node node_modules/tailwindcss/lib/cli.js -i ./src/index.css -o ./dist/output.css --watch",
     "preview": "vite preview"
