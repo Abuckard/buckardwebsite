@@ -8,9 +8,9 @@ const OrderButton = ({ text, font, color, glow, email, size, price, dimensions }
         }
 
         const orderData = { text, font, color, glow, email, size, price, dimensions };
-
+        //http://localhost:5000/api/items
         try {
-            const response = await fetch("http://localhost:5000/api/items", {
+            const response = await fetch("https://5pjukymu4e.execute-api.eu-north-1.amazonaws.com/dev/api/items", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

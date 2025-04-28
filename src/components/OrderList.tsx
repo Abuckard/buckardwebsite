@@ -8,7 +8,7 @@ const OrderList = () => {
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                const response = await fetch("http://localhost:5000/api/items");
+                const response = await fetch("https://5pjukymu4e.execute-api.eu-north-1.amazonaws.com/dev/api/items");
                 if (!response.ok) {
                     throw new Error("Något gick fel vid hämtning av beställningar");
                 }
@@ -28,7 +28,7 @@ const OrderList = () => {
     if (error) return <p className="text-center text-red-500">{error}</p>;
 
     return (
-        <div className="p-6 bg-gray-100 rounded-lg w-full max-w-3xl mx-auto">
+        <div className="p-6 bg-gray-100 rounded-lg w-full max-w-3xl mx-auto mt-15">
             <h2 className="text-2xl font-bold mb-4">Orderlista</h2>
             {orders.length === 0 ? (
                 <p>Inga beställningar ännu.</p>
