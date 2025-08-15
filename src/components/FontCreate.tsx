@@ -4,6 +4,7 @@ import PriceExample from "./priceExample";
 import getTextStyle from "./TextStyle";
 import EmailInput from "./EmailInput";
 import OrderButton from "./OrderButton";
+import ContactInfo from "./ContactInfo";
 
 const fonts = [
     "Arial", "Courier New", "Georgia", "Times New Roman", "Verdana", "Comic Sans MS",
@@ -148,7 +149,8 @@ const FontCreate = () => {
             />
 
             <PriceExample />
-            <EmailInput email={email} setEmail={setEmail} />
+            <ContactInfo />
+            {/* <EmailInput email={email} setEmail={setEmail} />
 
             <OrderButton
                 text={text}
@@ -159,7 +161,7 @@ const FontCreate = () => {
                 size={selectedSize}
                 price={totalPrice}
                 dimensions={priceOptions[selectedSize].dimensions}
-            />
+            /> */}
         </div>
     );
 };
