@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 
 const priceOptions = {
-    small: { dimensions: "30x20 cm", price: 100 },
-    medium: { dimensions: "50x30 cm", price: 200 },
-    large: { dimensions: "70x50 cm", price: 350 },
-    xl: { dimensions: "100x70 cm", price: 500 }
+    small: { dimensions: "50x10 cm", price: 8800 },
+    medium: { dimensions: "70x14 cm", price: 12800 },
+    large: { dimensions: "100x18 cm", price: 16000 },
+    xl: { dimensions: "160x30 cm", price: 22000 }
 };
 
 const PriceExample = () => {
