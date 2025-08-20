@@ -1,376 +1,3 @@
-// import React, { useState, useEffect } from "react";
-// import BackgroundImage from "./BackgroundImage";
-// import PriceExample from "./priceExample";
-// import getTextStyle from "./TextStyle";
-// import EmailInput from "./EmailInput";
-// import OrderButton from "./OrderButton";
-// import ContactInfo from "./ContactInfo";
-
-// const fonts = [
-//     "Arial", "Courier New", "Georgia", "Times New Roman", "Verdana", "Comic Sans MS",
-//     "Sui-generis", "Ethnocentric", "Rooney", "Tachyon", "Griffon", "Aviano-serif",
-// ];
-
-// const colors = ["black", "red", "blue", "green", "chrome", "stainless"];
-
-// const glowEffects = ["none", "Röd", "Blå", "Grön", "Lila", "Vit"];
-
-// const priceOptions = {
-//     small: { dimensions: "50x10 cm", price: 8800 },
-//     medium: { dimensions: "70x14 cm", price: 12800 },
-//     large: { dimensions: "100x18 cm", price: 16000 },
-//     xl: { dimensions: "160x30 cm", price: 22000 }
-// };
-
-// const FontCreate = () => {
-//     const [selectedFont, setSelectedFont] = useState(() => localStorage.getItem("selectedFont") || fonts[0]);
-//     const [selectedColor, setSelectedColor] = useState(() => localStorage.getItem("selectedColor") || "black");
-//     const [selectedGlow, setSelectedGlow] = useState(() => localStorage.getItem("selectedGlow") || "none");
-//     const [text, setText] = useState(() => localStorage.getItem("text") || "");
-//     const [fontSize, setFontSize] = useState(() => Number(localStorage.getItem("fontSize")) || 16);
-//     const [bgScale, setBgScale] = useState(() => Number(localStorage.getItem("bgScale")) || 1);
-//     const [textPosition, setTextPosition] = useState(() => {
-//         return localStorage.getItem("textPosition")
-//             ? JSON.parse(localStorage.getItem("textPosition"))
-//             : { top: 50, left: 50 };
-//     });
-
-//     const [email, setEmail] = useState("");
-//     const [selectedSize, setSelectedSize] = useState("small");
-
-//     useEffect(() => {
-//         localStorage.setItem("selectedFont", selectedFont);
-//         localStorage.setItem("selectedColor", selectedColor);
-//         localStorage.setItem("selectedGlow", selectedGlow);
-//         localStorage.setItem("text", text);
-//         localStorage.setItem("fontSize", fontSize.toString());
-//         localStorage.setItem("bgScale", bgScale.toString());
-//         localStorage.setItem("textPosition", JSON.stringify(textPosition));
-//     }, [selectedFont, selectedColor, selectedGlow, text, fontSize, bgScale, textPosition]);
-
-//     const totalPrice = priceOptions[selectedSize].price;
-
-//     return (
-//         <div className="flex flex-col items-center justify-center min-h-screen p-6 text-white relative w-full">
-//             <h1 className="text-2xl font-bold mb-4 mt-10">Designa ditt båtnamn</h1>
-
-//             <label className="mb-1">Skriv din text:</label>
-//             <input
-//                 type="text"
-//                 placeholder="Skriv något..."
-//                 className="p-2 border border-white rounded bg-transparent text-white mb-2 w-64 text-center placeholder-gray-300"
-//                 value={text}
-//                 onChange={(e) => setText(e.target.value)}
-//             />
-
-//             <label className="mb-2">Välj ett typsnitt:</label>
-//             <select
-//                 className="p-2 border border-white rounded bg-transparent text-white mb-4"
-//                 value={selectedFont}
-//                 onChange={(e) => setSelectedFont(e.target.value)}
-//             >
-//                 {fonts.map((font) => (
-//                     <option key={font} value={font} style={{ fontFamily: font }} className="text-black">
-//                         {font}
-//                     </option>
-//                 ))}
-//             </select>
-
-//             <div className="flex">
-//                 <div className="flex flex-col">
-//                     <label className="mb-2">Välj textfärg:</label>
-//                     <select
-//                         className="p-2 border border-white rounded bg-transparent text-white mb-4"
-//                         value={selectedColor}
-//                         onChange={(e) => setSelectedColor(e.target.value)}
-//                     >
-//                         {colors.map((color) => (
-//                             <option key={color} value={color} className="text-black">
-//                                 {color}
-//                             </option>
-//                         ))}
-//                     </select>
-//                 </div>
-//                 <div className="flex flex-col ml-4">
-//                     <label className="mb-2">Välj ljuseffekt:</label>
-//                     <select
-//                         className="p-2 border border-white rounded bg-transparent text-white mb-4"
-//                         value={selectedGlow}
-//                         onChange={(e) => setSelectedGlow(e.target.value)}
-//                     >
-//                         {glowEffects.map((glow) => (
-//                             <option key={glow} value={glow} className="text-black">
-//                                 {glow.replace("-glow", "")}
-//                             </option>
-//                         ))}
-//                     </select>
-//                 </div>
-//             </div>
-
-//             <label className="mb-2">Välj textstorlek:</label>
-//             <input
-//                 type="range"
-//                 min="10"
-//                 max="50"
-//                 value={fontSize}
-//                 onChange={(e) => setFontSize(Number(e.target.value))}
-//                 className="w-64 mb-4 accent-white"
-//             />
-
-//             <label className="mb-2">Justera textposition:</label>
-//             <input
-//                 type="range"
-//                 min="0"
-//                 max="100"
-//                 value={textPosition.top}
-//                 onChange={(e) => setTextPosition({ ...textPosition, top: Number(e.target.value) })}
-//                 className="w-64 mb-2 accent-white"
-//             />
-//             <input
-//                 type="range"
-//                 min="0"
-//                 max="100"
-//                 value={textPosition.left}
-//                 onChange={(e) => setTextPosition({ ...textPosition, left: Number(e.target.value) })}
-//                 className="w-64 mb-4 accent-white"
-//             />
-//             <div className="w-full max-w-[900px] mx-auto">
-//                 <BackgroundImage bgScale={bgScale} text={text} textStyle={getTextStyle(selectedFont, fontSize, textPosition, selectedColor, selectedGlow)} />
-//             </div>
-//             <label className="mb-2 mt-4">Zooma bakgrund:</label>
-//             <input
-//                 type="range"
-//                 min="1"
-//                 max="3"
-//                 step="0.1"
-//                 value={bgScale}
-//                 onChange={(e) => setBgScale(Number(e.target.value))}
-//                 className="w-64 mb-4 accent-white"
-//             />
-
-//             <PriceExample />
-//             <ContactInfo />
-//             {/* <EmailInput email={email} setEmail={setEmail} />
-
-//             <OrderButton
-//                 text={text}
-//                 font={selectedFont}
-//                 color={selectedColor}
-//                 glow={selectedGlow}
-//                 email={email}
-//                 size={selectedSize}
-//                 price={totalPrice}
-//                 dimensions={priceOptions[selectedSize].dimensions}
-//             /> */}
-//         </div>
-//     );
-// };
-
-// export default FontCreate;
-
-
-
-
-
-
-
-
-
-
-
-
-// import React, { useState, useEffect } from "react";
-// import BackgroundImage from "./BackgroundImage";
-// import PriceExample from "./priceExample";
-// import getTextStyle from "./TextStyle";
-// import EmailInput from "./EmailInput";
-// import OrderButton from "./OrderButton";
-// import ContactInfo from "./ContactInfo";
-
-// const fonts = [
-//     "Arial", "Courier New", "Georgia", "Times New Roman", "Verdana", "Comic Sans MS",
-//     "Sui-generis", "Ethnocentric", "Rooney", "Tachyon", "Griffon", "Aviano-serif",
-// ];
-
-// const colors = ["black", "red", "blue", "green", "chrome", "stainless"];
-// const glowEffects = ["none", "Röd", "Blå", "Grön", "Lila", "Vit"];
-
-// const priceOptions = {
-//     small: { dimensions: "50x10 cm", price: 8800 },
-//     medium: { dimensions: "70x14 cm", price: 12800 },
-//     large: { dimensions: "100x18 cm", price: 16000 },
-//     xl: { dimensions: "160x30 cm", price: 22000 }
-// };
-
-// const FontCreate = () => {
-//     const [selectedFont, setSelectedFont] = useState(() => localStorage.getItem("selectedFont") || fonts[0]);
-//     const [selectedColor, setSelectedColor] = useState(() => localStorage.getItem("selectedColor") || "black");
-//     const [selectedGlow, setSelectedGlow] = useState(() => localStorage.getItem("selectedGlow") || "none");
-//     const [text, setText] = useState(() => localStorage.getItem("text") || "");
-//     const [fontSize, setFontSize] = useState(() => Number(localStorage.getItem("fontSize")) || 16);
-//     const [bgScale, setBgScale] = useState(() => Number(localStorage.getItem("bgScale")) || 1);
-//     const [textPosition, setTextPosition] = useState(() => {
-//         return localStorage.getItem("textPosition")
-//             ? JSON.parse(localStorage.getItem("textPosition") as string)
-//             : { top: 50, left: 50 };
-//     });
-
-//     // Rotation med slider, default 0°
-//     const [rotation, setRotation] = useState<number>(() => Number(localStorage.getItem("rotation")) || 0);
-
-//     const [email, setEmail] = useState("");
-//     const [selectedSize, setSelectedSize] = useState("small");
-
-//     useEffect(() => {
-//         localStorage.setItem("selectedFont", selectedFont);
-//         localStorage.setItem("selectedColor", selectedColor);
-//         localStorage.setItem("selectedGlow", selectedGlow);
-//         localStorage.setItem("text", text);
-//         localStorage.setItem("fontSize", fontSize.toString());
-//         localStorage.setItem("bgScale", bgScale.toString());
-//         localStorage.setItem("textPosition", JSON.stringify(textPosition));
-//         localStorage.setItem("rotation", rotation.toString());
-//     }, [selectedFont, selectedColor, selectedGlow, text, fontSize, bgScale, textPosition, rotation]);
-
-//     const totalPrice = priceOptions[selectedSize as keyof typeof priceOptions].price;
-
-//     return (
-//         <div className="flex flex-col items-center justify-center min-h-screen p-6 text-white relative w-full">
-//             <h1 className="text-2xl font-bold mb-4 mt-10">Designa ditt båtnamn</h1>
-
-//             <label className="mb-1">Skriv din text:</label>
-//             <input
-//                 type="text"
-//                 placeholder="Skriv något..."
-//                 className="p-2 border border-white rounded bg-transparent text-white mb-2 w-64 text-center placeholder-gray-300"
-//                 value={text}
-//                 onChange={(e) => setText(e.target.value)}
-//             />
-
-//             <label className="mb-2">Välj ett typsnitt:</label>
-//             <select
-//                 className="p-2 border border-white rounded bg-transparent text-white mb-4"
-//                 value={selectedFont}
-//                 onChange={(e) => setSelectedFont(e.target.value)}
-//             >
-//                 {fonts.map((font) => (
-//                     <option key={font} value={font} style={{ fontFamily: font }} className="text-black">
-//                         {font}
-//                     </option>
-//                 ))}
-//             </select>
-
-//             <div className="flex">
-//                 <div className="flex flex-col">
-//                     <label className="mb-2">Välj textfärg:</label>
-//                     <select
-//                         className="p-2 border border-white rounded bg-transparent text-white mb-4"
-//                         value={selectedColor}
-//                         onChange={(e) => setSelectedColor(e.target.value)}
-//                     >
-//                         {colors.map((color) => (
-//                             <option key={color} value={color} className="text-black">
-//                                 {color}
-//                             </option>
-//                         ))}
-//                     </select>
-//                 </div>
-//                 <div className="flex flex-col ml-4">
-//                     <label className="mb-2">Välj ljuseffekt:</label>
-//                     <select
-//                         className="p-2 border border-white rounded bg-transparent text-white mb-4"
-//                         value={selectedGlow}
-//                         onChange={(e) => setSelectedGlow(e.target.value)}
-//                     >
-//                         {glowEffects.map((glow) => (
-//                             <option key={glow} value={glow} className="text-black">
-//                                 {glow.replace("-glow", "")}
-//                             </option>
-//                         ))}
-//                     </select>
-//                 </div>
-//             </div>
-
-//             <label className="mb-2">Välj textstorlek:</label>
-//             <input
-//                 type="range"
-//                 min="10"
-//                 max="50"
-//                 value={fontSize}
-//                 onChange={(e) => setFontSize(Number(e.target.value))}
-//                 className="w-64 mb-4 accent-white"
-//             />
-
-//             <label className="mb-2">Justera textposition:</label>
-//             <input
-//                 type="range"
-//                 min="0"
-//                 max="100"
-//                 value={textPosition.top}
-//                 onChange={(e) => setTextPosition({ ...textPosition, top: Number(e.target.value) })}
-//                 className="w-64 mb-2 accent-white"
-//             />
-//             <input
-//                 type="range"
-//                 min="0"
-//                 max="100"
-//                 value={textPosition.left}
-//                 onChange={(e) => setTextPosition({ ...textPosition, left: Number(e.target.value) })}
-//                 className="w-64 mb-4 accent-white"
-//             />
-
-//             {/* NYTT: slider för rotation */}
-//             <label className="mb-2">Rotera text:</label>
-//             <input
-//                 type="range"
-//                 min={-10}
-//                 max={10}
-//                 step={1}
-//                 value={rotation}
-//                 onChange={(e) => setRotation(Number(e.target.value))}
-//                 className="w-64 mb-4 accent-white"
-//             />
-//             <div className="mb-4">Rotation: {rotation}°</div>
-//             <label className="mb-2 mt-4">Zooma bakgrund:</label>
-//             <input
-//                 type="range"
-//                 min="0.5"
-//                 max="3"
-//                 step="0.1"
-//                 value={bgScale}
-//                 onChange={(e) => setBgScale(Number(e.target.value))}
-//                 className="w-64 mb-4 accent-white"
-//             />
-
-
-//             <div className="w-full max-w-[900px] mx-auto">
-//                 <BackgroundImage
-//                     bgScale={bgScale}
-//                     text={text}
-//                     textStyle={getTextStyle(
-//                         selectedFont,
-//                         fontSize,
-//                         textPosition,
-//                         selectedColor,
-//                         selectedGlow,
-//                         rotation // skickas vidare
-//                     )}
-//                 />
-//             </div>
-
-
-//             <PriceExample />
-//             <ContactInfo />
-//         </div>
-//     );
-// };
-
-// export default FontCreate;
-
-
-
-
-
 import React, { useState, useEffect } from "react";
 import BackgroundImage from "./BackgroundImage";
 import PriceExample from "./priceExample";
@@ -379,6 +6,7 @@ import EmailInput from "./EmailInput";
 import OrderButton from "./OrderButton";
 import ContactInfo from "./ContactInfo";
 import ContactForm from "./ContactForm";
+import NavButton from "./NavButton";
 
 const fonts = [
     "Arial", "Courier New", "Georgia", "Times New Roman", "Verdana", "Comic Sans MS",
@@ -459,6 +87,7 @@ const FontCreate = () => {
     ]);
 
     const designData = {
+        // Primär text
         text,
         selectedFont,
         selectedColor,
@@ -466,7 +95,8 @@ const FontCreate = () => {
         fontSize,
         rotation,
         textPosition,
-        bgScale,
+
+        // Extra text
         showExtra,
         text2,
         selectedFont2,
@@ -475,9 +105,16 @@ const FontCreate = () => {
         fontSize2,
         rotation2,
         textPosition2,
+
+        // Bakgrund
+        bgScale,
+
+        // Pris
         selectedSize,
-        totalPrice,
+        dimensions: priceOptions[selectedSize as keyof typeof priceOptions].dimensions,
+        totalPrice: priceOptions[selectedSize as keyof typeof priceOptions].price,
     };
+
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen p-6 text-white relative w-full">
@@ -559,9 +196,9 @@ const FontCreate = () => {
             />
             <div className="mb-4">Rotation: {rotation}°</div>
 
-            <label className="mb-2">Justera textposition:</label>
+            {/* <label className="mb-2">Justera textposition:</label> */}
             <input
-                type="range"
+                type="hidden"
                 min="0"
                 max="100"
                 value={textPosition.top}
@@ -569,7 +206,7 @@ const FontCreate = () => {
                 className="w-64 mb-2 accent-white"
             />
             <input
-                type="range"
+                type="hidden"
                 min="0"
                 max="100"
                 value={textPosition.left}
@@ -578,7 +215,7 @@ const FontCreate = () => {
             />
 
             {/* Extra text – toggle + kontroller */}
-            <button
+            {/* <button
                 type="button"
                 onClick={() => setShowExtra((v) => !v)}
                 className="px-4 py-2 border border-white rounded mb-4"
@@ -684,37 +321,122 @@ const FontCreate = () => {
                         className="w-64 mb-2 accent-white"
                     />
                 </div>
+            )} */}
+
+            <button
+                type="button"
+                onClick={() => setShowExtra((v) => !v)}
+                className="px-4 py-2 border border-white rounded mb-4 w-full sm:w-auto"
+            >
+                {showExtra ? "Ta bort extra text" : "Lägg till extra text"}
+            </button>
+
+            {showExtra && (
+                <div className="w-full max-w-[700px] border border-white/40 rounded p-4 mb-4">
+                    <h2 className="font-semibold mb-3">Extra text</h2>
+
+                    <label className="mb-1">Text:</label>
+                    <input
+                        type="text"
+                        placeholder="Skriv extra text..."
+                        className="p-2 border border-white rounded bg-transparent text-white mb-3 w-full sm:w-64 text-center placeholder-gray-300"
+                        value={text2}
+                        onChange={(e) => setText2(e.target.value)}
+                    />
+
+                    <div className="flex flex-col sm:flex-row sm:space-x-4">
+                        <div className="flex flex-col flex-1">
+                            <label className="mb-2">Typsnitt:</label>
+                            <select
+                                className="p-2 border border-white rounded bg-transparent text-white mb-4"
+                                value={selectedFont2}
+                                onChange={(e) => setSelectedFont2(e.target.value)}
+                            >
+                                {fonts.map((font) => (
+                                    <option key={font} value={font} style={{ fontFamily: font }} className="text-black">
+                                        {font}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+
+                        <div className="flex flex-col flex-1">
+                            <label className="mb-2">Färg:</label>
+                            <select
+                                className="p-2 border border-white rounded bg-transparent text-white mb-4"
+                                value={selectedColor2}
+                                onChange={(e) => setSelectedColor2(e.target.value)}
+                            >
+                                {colors.map((color) => (
+                                    <option key={color} value={color} className="text-black">
+                                        {color}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+
+                        <div className="flex flex-col flex-1">
+                            <label className="mb-2">Glow:</label>
+                            <select
+                                className="p-2 border border-white rounded bg-transparent text-white mb-4"
+                                value={selectedGlow2}
+                                onChange={(e) => setSelectedGlow2(e.target.value)}
+                            >
+                                {glowEffects.map((glow) => (
+                                    <option key={glow} value={glow} className="text-black">
+                                        {glow.replace("-glow", "")}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                    </div>
+
+                    <label className="mb-2">Storlek:</label>
+                    <input
+                        type="range"
+                        min="8"
+                        max="48"
+                        value={fontSize2}
+                        onChange={(e) => setFontSize2(Number(e.target.value))}
+                        className="w-full sm:w-64 mb-4 accent-white"
+                    />
+
+                    <label className="mb-2">Rotation:</label>
+                    <input
+                        type="range"
+                        min={-10}
+                        max={10}
+                        step={1}
+                        value={rotation2}
+                        onChange={(e) => setRotation2(Number(e.target.value))}
+                        className="w-full sm:w-64 mb-2 accent-white"
+                    />
+                    <div className="mb-3">Rotation: {rotation2}°</div>
+                    {/* 
+                    <label className="mb-2">Position:</label> */}
+                    <input
+                        type="hidden"
+                        min="0"
+                        max="100"
+                        value={textPosition2.top}
+                        onChange={(e) => setTextPosition2({ ...textPosition2, top: Number(e.target.value) })}
+                        className="w-full sm:w-64 mb-2 accent-white"
+                    />
+                    <input
+                        type="hidden"
+                        min="0"
+                        max="100"
+                        value={textPosition2.left}
+                        onChange={(e) => setTextPosition2({ ...textPosition2, left: Number(e.target.value) })}
+                        className="w-full sm:w-64 mb-2 accent-white"
+                    />
+                </div>
             )}
+
 
             {/* Förhandsvisning */}
             <div className="w-full max-w-[900px] mx-auto">
-                {/* <BackgroundImage
-                    bgScale={bgScale}
-                    text={text}
-                    textStyle={getTextStyle(
-                        selectedFont,
-                        fontSize,
-                        textPosition,
-                        selectedColor,
-                        selectedGlow,
-                        rotation
-                    )}
 
-                    // NYTT: extra text (valfri)
-                    secondaryText={showExtra ? text2 : undefined}
-                    secondaryTextStyle={
-                        showExtra
-                            ? getTextStyle(
-                                selectedFont2,
-                                fontSize2,
-                                textPosition2,
-                                selectedColor2,
-                                selectedGlow2,
-                                rotation2
-                            )
-                            : undefined
-                    }
-                /> */}
                 <BackgroundImage
                     bgScale={bgScale}
                     text={text}
@@ -750,25 +472,21 @@ const FontCreate = () => {
             <label className="mb-2 mt-4">Zooma bakgrund:</label>
             <input
                 type="range"
-                min="0.3"  // tillåter att zooma ut mer
+                min="0.3"
                 max="3"
                 step="0.1"
                 value={bgScale}
                 onChange={(e) => setBgScale(Number(e.target.value))}
                 className="w-64 mb-4 accent-white"
             />
-
             <PriceExample />
-            <ContactInfo />
-            <div className="flex flex-col items-center justify-center min-h-screen p-6 text-white relative w-full">
-                {/* ...din kod för inputs, sliders, BackgroundImage osv */}
-
-                <PriceExample />
-                <ContactInfo />
-
-                {/* NYTT – kontaktformuläret */}
-                <ContactForm designData={designData} />
+            <div className="flex space-x-4 mb-6 mt-6">
+                <NavButton to="/galleri" label="Galleri" color="blue" />
+                <NavButton to="/montering" label="Montering" color="green" />
             </div>
+
+            <ContactForm designData={designData} />
+
         </div>
     );
 };
