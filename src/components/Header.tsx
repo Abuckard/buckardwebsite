@@ -9,7 +9,11 @@ const Header = () => {
     return (
         <header className="bg-gray-900 text-white p-4 shadow-md fixed w-full top-0 z-50">
             <div className="container mx-auto flex justify-between items-center">
-                <h1 className="text-xl font-bold">Buckards Båtar</h1>
+                <h1 className="text-xl font-bold">
+                    <Link to="/" className="hover:underline">
+                        Buckards Båtar
+                    </Link>
+                </h1>
                 <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
                     ☰
                 </button>

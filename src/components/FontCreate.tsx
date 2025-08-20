@@ -378,6 +378,7 @@ import getTextStyle from "./TextStyle";
 import EmailInput from "./EmailInput";
 import OrderButton from "./OrderButton";
 import ContactInfo from "./ContactInfo";
+import ContactForm from "./ContactForm";
 
 const fonts = [
     "Arial", "Courier New", "Georgia", "Times New Roman", "Verdana", "Comic Sans MS",
@@ -456,6 +457,27 @@ const FontCreate = () => {
         bgScale,
         showExtra, text2, selectedFont2, selectedColor2, selectedGlow2, fontSize2, rotation2, textPosition2
     ]);
+
+    const designData = {
+        text,
+        selectedFont,
+        selectedColor,
+        selectedGlow,
+        fontSize,
+        rotation,
+        textPosition,
+        bgScale,
+        showExtra,
+        text2,
+        selectedFont2,
+        selectedColor2,
+        selectedGlow2,
+        fontSize2,
+        rotation2,
+        textPosition2,
+        selectedSize,
+        totalPrice,
+    };
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen p-6 text-white relative w-full">
@@ -738,6 +760,15 @@ const FontCreate = () => {
 
             <PriceExample />
             <ContactInfo />
+            <div className="flex flex-col items-center justify-center min-h-screen p-6 text-white relative w-full">
+                {/* ...din kod för inputs, sliders, BackgroundImage osv */}
+
+                <PriceExample />
+                <ContactInfo />
+
+                {/* NYTT – kontaktformuläret */}
+                <ContactForm designData={designData} />
+            </div>
         </div>
     );
 };
