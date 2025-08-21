@@ -18,9 +18,10 @@ const PriceExample = () => {
 
     return (
         <div className="flex flex-col items-center p-6 bg-gray-900 border rounded-lg w-70">
-            <h2 className="text-xl font-bold mb-4">Prisförslag</h2>
+            <h2 className="text-xl font-bold ">Prisförslag </h2>
+            <p className=" font-semibold mb-4">Inkl moms:</p>
 
-            <label className="mb-2">Välj storlek:</label>
+            <label className="mb-2">Välj skyltstorlek:</label>
             <select
                 className="p-2 border rounded mb-4 text-white-500 bg-gray-800"
                 value={selectedSize}

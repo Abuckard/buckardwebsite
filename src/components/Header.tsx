@@ -22,7 +22,7 @@ const Header = () => {
                         } md:flex space-x-4 absolute md:static bg-gray-900 w-full md:w-auto top-full left-0 p-4 md:p-0`}
                 >
                     <Link to="/" className="block py-2 md:inline-block">Hem</Link>
-                    <div className="relative">
+                    {/* <div className="relative">
                         <button
                             onClick={() => setSignsOpen(!signsOpen)}
                             className="block py-2 md:inline-block focus:outline-none"
@@ -37,10 +37,10 @@ const Header = () => {
                                 <Link to="/faq" className="block px-4 py-2 hover:bg-gray-700">Vanliga frågor</Link>
                             </div>
                         )}
-                    </div>
+                    </div> */}
 
 
-
+                    <Link to="/signs" className="block py-2 md:inline-block">Designverktyg</Link>
                     <Link to="/about" className="block py-2 md:inline-block">Om oss</Link>
                     <Link to="/contact" className="block py-2 md:inline-block">Kontakt</Link>
                     <div className="relative">

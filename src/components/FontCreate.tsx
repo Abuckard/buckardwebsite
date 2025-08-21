@@ -482,7 +482,9 @@ const FontCreate = () => {
             <PriceExample />
             <div className="flex space-x-4 mb-6 mt-6">
                 <NavButton to="/galleri" label="Galleri" color="blue" />
-                <NavButton to="/montering" label="Montering" color="green" />
+                <NavButton to="/faq" label="Vanliga frågor" color="green" />
+                <NavButton to="/montering" label="Montering" color="blue" />
+
             </div>
 
             <ContactForm designData={designData} />

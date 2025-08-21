@@ -72,11 +72,11 @@ const ContactForm = ({ designData }: ContactFormProps) => {
             onSubmit={sendEmail}
             className="mt-4 w-full max-w-md rounded-lg border border-white/20 p-4 backdrop-blur-sm"
         >
-            <h3 className="mb-3 text-lg font-semibold">Kontakta oss</h3>
+            <h3 className="mb-3 text-lg font-semibold">Intresseanmälan</h3>
 
             {/* Namn */}
             <div className="mb-2">
-                <label className="mb-1 block text-sm text-white/80">Ditt namn</label>
+                <label className="mb-1 block text-sm text-white/80">Namn</label>
                 <input
                     type="text"
                     name="user_name"
@@ -88,7 +88,7 @@ const ContactForm = ({ designData }: ContactFormProps) => {
 
             {/* E-post */}
             <div className="mb-2">
-                <label className="mb-1 block text-sm text-white/80">Din e-post</label>
+                <label className="mb-1 block text-sm text-white/80">E-post</label>
                 <input
                     type="email"
                     name="user_email"
@@ -103,7 +103,7 @@ const ContactForm = ({ designData }: ContactFormProps) => {
                 <label className="mb-1 block text-sm text-white/80">Meddelande</label>
                 <textarea
                     name="message"
-                    placeholder="Berätta gärna mer om båten eller önskemål."
+                    placeholder={`Båtmodell\nMaximal längd och höjd\n12/24 volt\nTelefonnummer`}
                     rows={4}
                     className="w-full rounded border border-white/30 bg-transparent px-3 py-2 text-white placeholder-white/50 focus:outline-none"
                 />
