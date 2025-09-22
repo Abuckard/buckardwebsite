@@ -383,10 +383,19 @@
 
 
 import React, { useEffect, useRef, useState } from "react";
-import PrincessTest from "../Images/PrincessTest.png";
+import PrincessV50 from "../Images/Princess V50.png";
 import Akterspegel from "../Images/Akterspegel.jpg";
 import Akter from "../Images/akter.jpg";
 import GPT from "../Images/GPT.png";
+import Beneteau from "../Images/Beneteau.jpg";
+import Cranchi from "../Images/Cranchi.jpg";
+import Fairline from "../Images/Fairline.jpg";
+import Phantom46 from "../Images/Phantom46.jpg";
+import Prestige from "../Images/Prestige.jpg";
+import Targa40 from "../Images/Targa40.jpg";
+import Targa43 from "../Images/Targa43.jpg";
+import Targa34 from "../Images/Targa34.jpg";
+import GPTNatt from "../Images/GPTNatt.png";
 
 type Pos = { top: number; left: number };
 
@@ -426,12 +435,32 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({
         selectedImage === "uploaded" && uploadedImage
             ? uploadedImage
             : selectedImage === "PrincessTest"
-                ? PrincessTest
+                ? PrincessV50
                 : selectedImage === "Akterspegel"
                     ? Akterspegel
                     : selectedImage === "Akter"
                         ? Akter
-                        : GPT;
+                        : selectedImage === "GPT"
+                            ? GPT
+                            : selectedImage === "GPTNatt"
+                                ? GPTNatt
+                                : selectedImage === "Beneteau"
+                                    ? Beneteau
+                                    : selectedImage === "Cranchi"
+                                        ? Cranchi
+                                        : selectedImage === "Fairline"
+                                            ? Fairline
+                                            : selectedImage === "Phantom46"
+                                                ? Phantom46
+                                                : selectedImage === "Prestige"
+                                                    ? Prestige
+                                                    : selectedImage === "Targa40"
+                                                        ? Targa40
+                                                        : selectedImage === "Targa43"
+                                                            ? Targa43
+                                                            : selectedImage === "Targa34"
+                                                                ? Targa34
+                                                                : GPT;
 
     // Drag för texter
     type DragTarget = "primary" | "secondary" | null;
@@ -457,6 +486,13 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({
 
     // Modal
     const [open, setOpen] = useState(false);
+
+    const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+    const openFilePicker = () => {
+        fileInputRef.current?.click();
+    };
+
 
     // Lås scroll när modalen är öppen
     useEffect(() => {
@@ -542,22 +578,61 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({
 
             {/* Bildväljare och uppladdning (syns alltid utanför modalen) */}
             <select
-                className="mb-4 p-2 border border-white rounded bg-transparent text-white w-full max-w-xs mt-5"
+                className="mb-4 p-2 border  bg-blue-600 hover:bg-blue-700 rounded text-white w-full max-w-xs mt-5"
                 value={selectedImage}
                 onChange={(e) => setSelectedImage(e.target.value)}
             >
-                <option value="PrincessTest" className="text-black">PrincessTest</option>
-                <option value="Akterspegel" className="text-black">Akterspegel</option>
-                <option value="Akter" className="text-black">Akter</option>
+                <option value="GPT" className="text-black">Akterspegel</option>
+                <option value="GPTNatt" className="text-black">Akterspegel natt</option>
+                <option value="PrincessTest" className="text-black">Princess V50</option>
+                <option value="Akter" className="text-black">Princess</option>
+                <option value="Phantom46" className="text-black">Phantom</option>
+                <option value="Cranchi" className="text-black">Cranchi</option>
+                <option value="Prestige" className="text-black">Prestige</option>
+                <option value="Targa34" className="text-black">Fairline Targa 34</option>
+                <option value="Targa40" className="text-black">Fairline Targa 40</option>
+                <option value="Targa43" className="text-black">Fairline Targa 43</option>
+                <option value="Fairline" className="text-black">Fairline Targa 50</option>
+                <option value="Beneteau" className="text-black">Beneteau</option>
+
+
+
                 <option value="uploaded" className="text-black">Uppladdad bild</option>
             </select>
 
-            <input
+            {/* <input
                 type="file"
                 accept="image/*"
                 onChange={handleImageUpload}
                 className="mb-4 p-2 border border-white rounded bg-transparent text-white w-full max-w-xs"
-            />
+            /> */}
+
+            {/* Egen knapp för uppladdning */}
+            <div className="w-full max-w-xs mb-4">
+                <button
+                    type="button"
+                    onClick={openFilePicker}
+                    className="w-full p-2 border bg-blue-600 hover:bg-blue-700 text-white rounded"
+                >
+                    Ladda upp egen bild
+                </button>
+
+                {/* Dölj den riktiga file-inputen men behåll samma onChange-hanterare */}
+                <input
+                    ref={fileInputRef}
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageUpload}
+                    className="hidden"
+                />
+
+                {/* (Valfritt) Visa filnamn när något valts */}
+                {uploadedImage && (
+                    <p className="mt-2 text-sm text-white/80 truncate">
+                        Bild vald ✔
+                    </p>
+                )}
+            </div>
 
             {/* Modal overlay */}
             {open && (

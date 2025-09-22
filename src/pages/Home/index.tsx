@@ -3,6 +3,7 @@ import Header from "../../components/header";
 import backgroundCity from "../../Images/background/backgroundCity.jpg";
 import StartDesign from "../../components/StartDesign"
 import WelcomeText from "../../components/Welcome";
+import Button from "../../components/Button";
 const Home = () => {
     return (
         <>
@@ -19,6 +20,7 @@ const Home = () => {
             >
                 <WelcomeText />
                 <StartDesign />
+                <Button />
             </div>
         </>
     );

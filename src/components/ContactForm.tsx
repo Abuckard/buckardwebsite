@@ -154,7 +154,7 @@ const ContactForm = ({ designData }: ContactFormProps) => {
                 {sending ? "Skickar…" : "Skicka"}
             </button>
 
-            {sent && <p className="mt-3 text-sm text-emerald-400">Meddelandet skickat! 🎉</p>}
+            {sent && <p className="mt-3 text-sm text-emerald-400">Vi kontaktar dig så snabbt vi kan!</p>}
             {error && <p className="mt-3 text-sm text-red-400">{error}</p>}
         </form>
     );

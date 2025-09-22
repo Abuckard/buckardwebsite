@@ -7,14 +7,25 @@ import OrderButton from "./OrderButton";
 import ContactInfo from "./ContactInfo";
 import ContactForm from "./ContactForm";
 import NavButton from "./NavButton";
+import { FONT_MAP } from "./FONT_MAP";
 
-const fonts = [
-    "Arial", "Courier New", "Georgia", "Times New Roman", "Verdana", "Comic Sans MS",
-    "Sui-generis", "Ethnocentric", "Rooney", "Tachyon", "Griffon", "Aviano-serif",
-];
+// const fonts = [
+//     "Arial", "Courier New", "Georgia", "Times New Roman", "Verdana", "Comic Sans MS",
+//     "Sui-generis", "Ethnocentric", "Rooney", "Tachyon", "Griffon", "Aviano-serif",
+// ];
 
-const colors = ["black", "red", "blue", "green", "chrome", "stainless"];
-const glowEffects = ["none", "Röd", "Blå", "Grön", "Lila", "Vit"];
+const fonts = Object.keys(FONT_MAP);
+
+const colors = ["black", "chrome",];
+const colorLabels: Record<string, string> = {
+    black: "Svart",
+    red: "Röd",
+    blue: "Blå",
+    green: "Grön",
+    chrome: "Krom",
+    stainless: "Rostfritt",
+};
+const glowEffects = ["none", "Röd", "Blå", "Grön", "Lila", "Vit", "Isblå", "Varmvit"];
 
 const priceOptions = {
     small: { dimensions: "50x10 cm", price: 8800 },
@@ -153,7 +164,7 @@ const FontCreate = () => {
                     >
                         {colors.map((color) => (
                             <option key={color} value={color} className="text-black">
-                                {color}
+                                {colorLabels[color]} {/* <-- Visas på svenska */}
                             </option>
                         ))}
                     </select>
@@ -326,14 +337,14 @@ const FontCreate = () => {
             <button
                 type="button"
                 onClick={() => setShowExtra((v) => !v)}
-                className="px-4 py-2 border border-white rounded mb-4 w-full sm:w-auto"
+                className="mt-2 mb-4 px-5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-md transition-colors"
             >
-                {showExtra ? "Ta bort extra text" : "Lägg till extra text"}
+                {showExtra ? "Ta bort extra text" : "Lägg till hemmahamn"}
             </button>
 
             {showExtra && (
-                <div className="w-full max-w-[700px] border border-white/40 rounded p-4 mb-4">
-                    <h2 className="font-semibold mb-3">Extra text</h2>
+                <div className="w-full max-w-[700px] border  border-white/40 rounded p-4 mb-4">
+                    <h2 className="font-semibold mb-3 ">Lägg till hemmahamn</h2>
 
                     <label className="mb-1">Text:</label>
                     <input

@@ -347,7 +347,128 @@
 
 
 
+// import React, { CSSProperties } from "react";
+
+// type TextPosition = {
+//     top: number;
+//     left: number;
+// };
+
+// const getTextStyle = (
+//     selectedFont: string,
+//     fontSize: number,
+//     textPosition: TextPosition,
+//     selectedColor: string,
+//     selectedGlow: string,
+//     rotation: number // NY parameter
+// ): CSSProperties => {
+//     let style: CSSProperties = {
+//         fontFamily: selectedFont,
+//         fontSize: `${fontSize}px`,
+//         position: "absolute",
+//         top: `${textPosition.top}%`,
+//         left: `${textPosition.left}%`,
+//         transform: `translate(-50%, -50%) rotate(${rotation}deg)`, // NYTT
+//         zIndex: 10,
+//         WebkitTextFillColor: "transparent",
+//         WebkitBackgroundClip: "text",
+//         backgroundClip: "text",
+//         display: "inline-block",
+//     };
+
+//     // font-varianter
+//     if (selectedFont === "griffon, sans-serif") {
+//         style.fontWeight = 200; style.fontStyle = "normal";
+//     }
+//     if (selectedFont === "rooney-sans, sans-serif") {
+//         style.fontWeight = 700; style.fontStyle = "italic";
+//     }
+//     if (selectedFont === "ethnocentric, sans-serif") {
+//         style.fontWeight = "normal"; style.fontStyle = "italic";
+//     }
+//     if (selectedFont === "tachyon, sans-serif") {
+//         style.fontWeight = "normal"; style.fontStyle = "normal";
+//     }
+//     if (selectedFont === "sui-generis, sans-serif") {
+//         style.fontWeight = "normal"; style.fontStyle = "normal";
+//     }
+//     if (selectedFont === "aviano-serif, serif") {
+//         style.fontWeight = 900; style.fontStyle = "normal";
+//     }
+
+//     // ---- CHROME ----
+//     if (selectedColor === "chrome") {
+//         style.backgroundImage = [
+//             "linear-gradient(90deg, #b7bcc2 0%, #f7f8f9 9%, #a3a9b0 18%, #ffffff 27%, #9aa1a9 38%, #e9ecef 52%, #8a9098 66%, #dfe2e6 82%, #b7bcc2 100%)",
+//             "linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 45%)",
+//         ].join(",");
+//         style.backgroundSize = "100% 100%, 200% 200%";
+//         style.backgroundPosition = "center, center";
+//         style.backgroundRepeat = "no-repeat";
+//         (style as any).WebkitTextStroke = "1.2px rgba(255,255,255,0.65)";
+//         style.textShadow = [
+//             "0 1px 0 rgba(0,0,0,0.45)",
+//             "0 -1px 0 rgba(255,255,255,0.35)",
+//         ].join(", ");
+//         (style as any).WebkitFontSmoothing = "antialiased";
+//         (style as any).MozOsxFontSmoothing = "grayscale";
+//         (style as any).textRendering = "geometricPrecision";
+//     }
+//     // ---- STAINLESS ----
+//     else if (selectedColor === "stainless") {
+//         style.backgroundImage =
+//             "linear-gradient(90deg, #c7ccd1 0%, #eef0f2 18%, #bdc3c9 36%, #ffffff 54%, #aab1b8 72%, #e4e7ea 100%)";
+//         (style as any).WebkitTextStroke = "0.9px rgba(255,255,255,0.6)";
+//         style.textShadow = "0 1px 0 rgba(0,0,0,0.35)";
+//     }
+//     // ---- Solida färger ----
+//     else if (["black", "red", "blue", "green"].includes(selectedColor)) {
+//         style.color = selectedColor;
+//         style.WebkitTextFillColor = selectedColor;
+//         style.WebkitBackgroundClip = "unset";
+//         style.backgroundClip = "unset";
+//         delete (style as any).WebkitTextStroke;
+//     } else {
+//         style.color = selectedColor;
+//         style.WebkitTextFillColor = selectedColor;
+//         style.WebkitBackgroundClip = "unset";
+//         style.backgroundClip = "unset";
+//         delete (style as any).WebkitTextStroke;
+//     }
+
+//     // ---- GLOW: endast text-shadow (ingen filter/drop-shadow) ----
+//     if (selectedGlow !== "none") {
+//         const glowColor: Record<string, string> = {
+//             Röd: "rgba(255, 0,   0, 0.9)",
+//             Blå: "rgba(  0, 84,255, 0.9)",
+//             Grön: "rgba(  0,255,110,0.9)",
+//             Lila: "rgba(160, 80,255,0.9)",
+//             Vit: "rgba(255,255,255,0.95)",
+//         };
+//         const c = glowColor[selectedGlow];
+//         if (c) {
+//             const glow = [
+//                 `0 0 6px ${c}`,
+//                 `0 0 12px ${c}`,
+//                 `0 0 20px ${c}`,
+//                 `0 0 32px ${c}`,
+//             ].join(", ");
+//             style.textShadow = [style.textShadow || "", glow].filter(Boolean).join(", ");
+//         }
+//     }
+
+//     delete (style as any).filter; // säkerställ att inget drop-shadow läcker in
+//     return style;
+// };
+
+// export default getTextStyle;
+
+
+
+
+
 import React, { CSSProperties } from "react";
+import { FONT_MAP } from "./FONT_MAP"; // 👈 importera vår map
 
 type TextPosition = {
     top: number;
@@ -360,15 +481,17 @@ const getTextStyle = (
     textPosition: TextPosition,
     selectedColor: string,
     selectedGlow: string,
-    rotation: number // NY parameter
+    rotation: number
 ): CSSProperties => {
+    const resolvedFont = FONT_MAP[selectedFont] || selectedFont; // 👈 slå upp fonten
+
     let style: CSSProperties = {
-        fontFamily: selectedFont,
+        fontFamily: resolvedFont,
         fontSize: `${fontSize}px`,
         position: "absolute",
         top: `${textPosition.top}%`,
         left: `${textPosition.left}%`,
-        transform: `translate(-50%, -50%) rotate(${rotation}deg)`, // NYTT
+        transform: `translate(-50%, -50%) rotate(${rotation}deg)`,
         zIndex: 10,
         WebkitTextFillColor: "transparent",
         WebkitBackgroundClip: "text",
@@ -376,23 +499,23 @@ const getTextStyle = (
         display: "inline-block",
     };
 
-    // font-varianter
-    if (selectedFont === "griffon, sans-serif") {
+    // font-varianter → jämför nu mot "enkla nycklar"
+    if (selectedFont === "Griffon") {
         style.fontWeight = 200; style.fontStyle = "normal";
     }
-    if (selectedFont === "rooney-sans, sans-serif") {
+    if (selectedFont === "Rooney") {
         style.fontWeight = 700; style.fontStyle = "italic";
     }
-    if (selectedFont === "ethnocentric, sans-serif") {
-        style.fontWeight = "normal"; style.fontStyle = "italic";
+    if (selectedFont === "Ethnocentric") {
+        style.fontWeight = 400; style.fontStyle = "normal";
     }
-    if (selectedFont === "tachyon, sans-serif") {
+    if (selectedFont === "Tachyon") {
         style.fontWeight = "normal"; style.fontStyle = "normal";
     }
-    if (selectedFont === "sui-generis, sans-serif") {
+    if (selectedFont === "Sui Generis") {
         style.fontWeight = "normal"; style.fontStyle = "normal";
     }
-    if (selectedFont === "aviano-serif, serif") {
+    if (selectedFont === "Aviano Serif") {
         style.fontWeight = 900; style.fontStyle = "normal";
     }
 
@@ -436,7 +559,7 @@ const getTextStyle = (
         delete (style as any).WebkitTextStroke;
     }
 
-    // ---- GLOW: endast text-shadow (ingen filter/drop-shadow) ----
+    // ---- GLOW ----
     if (selectedGlow !== "none") {
         const glowColor: Record<string, string> = {
             Röd: "rgba(255, 0,   0, 0.9)",
@@ -444,6 +567,8 @@ const getTextStyle = (
             Grön: "rgba(  0,255,110,0.9)",
             Lila: "rgba(160, 80,255,0.9)",
             Vit: "rgba(255,255,255,0.95)",
+            Isblå: "rgba(120, 190, 255, 0.95)",   // ljus isblå
+            Varmvit: "rgba(255, 244, 214, 0.95)", // varmvit med lite gul/orange ton
         };
         const c = glowColor[selectedGlow];
         if (c) {
@@ -457,9 +582,8 @@ const getTextStyle = (
         }
     }
 
-    delete (style as any).filter; // säkerställ att inget drop-shadow läcker in
+    delete (style as any).filter;
     return style;
 };
 
 export default getTextStyle;
-

@@ -43,7 +43,9 @@ const Header = () => {
                     <Link to="/signs" className="block py-2 md:inline-block">Designverktyg</Link>
                     <Link to="/about" className="block py-2 md:inline-block">Om oss</Link>
                     <Link to="/contact" className="block py-2 md:inline-block">Kontakt</Link>
-                    <div className="relative">
+                    <Link to="/inplastning" className="block py-2 md:inline-block">Inplastning</Link>
+                    <Link to="/polering" className="block py-2 md:inline-block">Polering</Link>
+                    {/* <div className="relative">
                         <button
                             onClick={() => setServicesOpen(!servicesOpen)}
                             className="block py-2 md:inline-block focus:outline-none"
@@ -57,7 +59,7 @@ const Header = () => {
                             </div>
                         )}
                     </div>
-                    <Link to="/login" className="block py-2 md:inline-block">Logga in</Link>
+                    <Link to="/login" className="block py-2 md:inline-block">Logga in</Link> */}
 
 
 

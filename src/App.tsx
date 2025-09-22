@@ -5,14 +5,16 @@ import Home from "./pages/Home";
 import Signs from "./pages/Signs";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import Login from "./pages/Login";
-import Admin from "./pages/Admin";
+// import Login from "./pages/Login";
+// import Admin from "./pages/Admin";
 import Inplastning from "./pages/Inplastning";
 import Polering from "./pages/Polering";
 import Gallery from "./pages/Gallery";
 import Montering from "./pages/Assembly";
 import Faq from "./pages/FAQ";
+import "./assets/fonts/fonts.css";
 import RequireAuth from "./components/Auth/RequireAuth";
+
 
 const App = () => {
   return (
@@ -22,17 +24,17 @@ const App = () => {
         <Route path="/signs" element={<Signs />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/login" element={<Login />} />
+        {/* <Route path="/login" element={<Login />} /> */}
 
         {/*  Skyddad route för admin */}
-        <Route
+        {/* <Route
           path="/admin"
           element={
             <RequireAuth>
               <Admin />
             </RequireAuth>
           }
-        />
+        /> */}
 
         <Route path="/inplastning" element={<Inplastning />} />
         <Route path="/polering" element={<Polering />} />
